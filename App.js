@@ -2,12 +2,13 @@ import {StatusBar} from 'expo-status-bar';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {AntDesign, MaterialIcons} from "@expo/vector-icons";
 
 import Categories from "./app/screens/Categories";
 import MealsOverview from "./app/screens/MealsOverview";
 import MealDetails from "./app/screens/MealDetails";
 import Favorites from "./app/screens/Favorites";
-import {AntDesign, MaterialIcons} from "@expo/vector-icons";
+import {FavoriteContextProvider} from "./app/store/context/favoriteContext";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -38,28 +39,29 @@ function DrawerNavigator() {
 
 export default function App() {
     return (
-
-        <NavigationContainer>
-            <StatusBar style={"auto"}/>
-            <Stack.Navigator screenOptions={{
-                headerStyle: {backgroundColor: "#351401"},
-                headerTintColor: "white",
-                contentStyle: {backgroundColor: "#3f2f25"}
-            }}>
-                <Stack.Screen
-                    name="MealCategories"
-                    component={DrawerNavigator}
-                    options={{headerShown: false}}
-                />
-                <Stack.Screen
-                    name="MealOverview"
-                    component={MealsOverview}
-                />
-                <Stack.Screen
-                    name="MealDetails"
-                    component={MealDetails}
-                />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <FavoriteContextProvider>
+            <NavigationContainer>
+                <StatusBar style={"auto"}/>
+                <Stack.Navigator screenOptions={{
+                    headerStyle: {backgroundColor: "#351401"},
+                    headerTintColor: "white",
+                    contentStyle: {backgroundColor: "#3f2f25"}
+                }}>
+                    <Stack.Screen
+                        name="MealCategories"
+                        component={DrawerNavigator}
+                        options={{headerShown: false}}
+                    />
+                    <Stack.Screen
+                        name="MealOverview"
+                        component={MealsOverview}
+                    />
+                    <Stack.Screen
+                        name="MealDetails"
+                        component={MealDetails}
+                    />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </FavoriteContextProvider>
     );
 };
