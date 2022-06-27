@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     }
 });
 
-const MealDetail = ({duration, complexity, affordability, style, textStyle}) => {
+const MealDetail = ({duration, complexity, style, textStyle}) => {
     return (
         <View style={[styles.details, style]}>
             <Text style={[styles.detailItem, textStyle]}>Time: {duration}Min</Text>
