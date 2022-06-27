@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import MealList from "../components/MealList";
-import {FavoriteContext} from "../store/context/favoriteContext";
+import {FavoriteContext} from "../context/favoriteContext";
 import {MEALS} from "../data";
+import {useDispatch, useSelector} from "react-redux";
 
 const styles = StyleSheet.create({
     container: {
@@ -19,8 +20,9 @@ const styles = StyleSheet.create({
 });
 
 const Favorites = () => {
-    const favoriteMealContext = useContext(FavoriteContext);
-    const meals = MEALS.filter(meal => favoriteMealContext.id.includes(meal.id));
+    // const favoriteMealContext = useContext(FavoriteContext);
+    const favoriteMealId = useSelector(state => state.favoriteMeals.id);
+    const meals = MEALS.filter(meal => favoriteMealId.includes(meal.id));
 
     return meals.length === 0
         ? <View style={styles.container}>

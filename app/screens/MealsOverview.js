@@ -1,7 +1,6 @@
 import React, {useLayoutEffect} from 'react';
 
 import {CATEGORIES, MEALS} from "../data";
-import MealItem from "../components/MealItem";
 import MealList from "../components/MealList";
 
 const MealsOverview = ({route, navigation}) => {

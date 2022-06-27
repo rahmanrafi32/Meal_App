@@ -1,13 +1,14 @@
-import React, {useContext, useLayoutEffect} from 'react';
+import React, {useLayoutEffect} from 'react';
 import {Text, View, StyleSheet, Image, ScrollView} from 'react-native';
+import {useDispatch, useSelector} from "react-redux";
 
 import {MEALS} from "../data";
 import MealDetail from "../components/MealDetail";
 import SubtitleMeal from "../components/SubtitleMeal";
 import Lists from "../components/Lists";
 import IconButton from "../components/IconButton";
-import {FavoriteContext} from "../store/context/favoriteContext";
-import mealItem from "../components/MealItem";
+import {addFavorite, removeFavorite} from "../lib/redux/slices/favorites";
+// import {FavoriteContext} from "../context/favoriteContext";
 
 const styles = StyleSheet.create({
     image: {
@@ -28,8 +29,10 @@ const styles = StyleSheet.create({
 });
 
 const MealDetails = ({route, navigation}) => {
-    const favoriteMealContext = useContext(FavoriteContext);
+    // const favoriteMealContext = useContext(FavoriteContext);
     const id = route.params.mealId;
+    const favoriteMealId = useSelector(state => state.favoriteMeals.id);
+    const dispatch = useDispatch();
     const {
         imageUrl,
         title,
@@ -40,10 +43,10 @@ const MealDetails = ({route, navigation}) => {
         ingredients
     } = MEALS.find(meal => meal.id === id);
 
-    const isMealFavorite = favoriteMealContext.id.includes(id);
+    const isMealFavorite = favoriteMealId.includes(id);
 
     function favoriteButtonPressHandler() {
-        isMealFavorite ? favoriteMealContext.removeFavorite(id) : favoriteMealContext.addFavorite(id)
+        isMealFavorite ? dispatch(removeFavorite(id)) : dispatch(addFavorite(id))
     }
 
     useLayoutEffect(() => {
