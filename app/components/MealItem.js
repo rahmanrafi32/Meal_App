@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, StyleSheet, Pressable, Image, Platform} from 'react-native';
 import {useNavigation} from "@react-navigation/native";
 import MealDetail from "./MealDetail";
+import colors from "../theme/colors";
 
 const styles = StyleSheet.create({
     image: {
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     mealItem: {
         margin: 16,
         borderRadius: 8,
-        backgroundColor: "white",
+        backgroundColor: colors.white,
         elevation: 4,
         shadowColor: "black",
         shadowOpacity: 0.25,

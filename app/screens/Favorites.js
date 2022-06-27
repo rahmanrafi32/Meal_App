@@ -1,9 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
+
 import MealList from "../components/MealList";
-import {FavoriteContext} from "../context/favoriteContext";
+// import {FavoriteContext} from "../context/favoriteContext";
 import {MEALS} from "../data";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
+import colors from "../theme/colors";
 
 const styles = StyleSheet.create({
     container: {
@@ -12,7 +14,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     title: {
-        color: "white",
+        color: colors.white,
         fontWeight: "bold",
         fontSize: 22,
         textAlign: "center"

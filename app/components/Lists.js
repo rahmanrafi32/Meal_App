@@ -1,6 +1,8 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
+import colors from "../theme/colors";
+
 const styles = StyleSheet.create({
     listItem: {
         borderRadius: 8,
@@ -8,10 +10,10 @@ const styles = StyleSheet.create({
         paddingVertical: 4,
         marginVertical: 4,
         marginHorizontal: 12,
-        backgroundColor: "#e2b497"
+        backgroundColor: colors.secondary
     },
     itemText: {
-        color: "#351401",
+        color: colors.primary,
         textAlign: "center"
     }
 });

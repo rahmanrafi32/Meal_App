@@ -1,18 +1,20 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 
+import colors from "../theme/colors";
+
 const styles = StyleSheet.create({
     subtitle: {
         fontSize: 18,
         fontWeight: "bold",
         textAlign: "center",
-        color: '#e2b497',
+        color: colors.secondary,
     },
     subtitleContainer: {
         marginHorizontal: 12,
         marginVertical: 4,
         padding: 6,
-        borderBottomColor: '#e2b497',
+        borderBottomColor: colors.secondary,
         borderBottomWidth: 2
     }
 });

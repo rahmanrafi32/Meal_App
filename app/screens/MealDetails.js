@@ -8,6 +8,7 @@ import SubtitleMeal from "../components/SubtitleMeal";
 import Lists from "../components/Lists";
 import IconButton from "../components/IconButton";
 import {addFavorite, removeFavorite} from "../lib/redux/slices/favorites";
+import colors from "../theme/colors";
 // import {FavoriteContext} from "../context/favoriteContext";
 
 const styles = StyleSheet.create({
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         margin: 8,
         textAlign: "center",
-        color: 'white'
+        color: colors.white
     },
     listContainer: {
         maxWidth: "80%",

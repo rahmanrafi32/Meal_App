@@ -11,19 +11,20 @@ import MealDetails from "./app/screens/MealDetails";
 import Favorites from "./app/screens/Favorites";
 // import {FavoriteContextProvider} from "./app/lib/context/favoriteContext";
 import {store} from "./app/lib/redux/store";
+import colors from "./app/theme/colors";
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
     return <Drawer.Navigator screenOptions={{
-        headerStyle: {backgroundColor: "#351401"},
-        headerTintColor: "white",
-        sceneContainerStyle: {backgroundColor: "#3f2f25"},
-        drawerActiveTintColor: "#3f2f25",
-        drawerActiveBackgroundColor: "#f3cdb8",
+        headerStyle: {backgroundColor: colors.primary},
+        headerTintColor: colors.white,
+        sceneContainerStyle: {backgroundColor: colors.primaryLight},
+        drawerActiveTintColor: colors.primaryLight,
+        drawerActiveBackgroundColor: colors.secondary,
         drawerInactiveTintColor: "white",
-        drawerContentStyle: {backgroundColor: "#351401"}
+        drawerContentStyle: {backgroundColor: colors.primary}
     }}>
         <Drawer.Screen
             name={"Categories"}
@@ -44,11 +45,11 @@ export default function App() {
         // <FavoriteContextProvider> for contextAPI
         <Provider store={store}>
             <NavigationContainer>
-                <StatusBar style={"auto"}/>
+                <StatusBar style={"light"}/>
                 <Stack.Navigator screenOptions={{
-                    headerStyle: {backgroundColor: "#351401"},
-                    headerTintColor: "white",
-                    contentStyle: {backgroundColor: "#3f2f25"}
+                    headerStyle: {backgroundColor: colors.primary},
+                    headerTintColor: colors.white,
+                    contentStyle: {backgroundColor: colors.primaryLight}
                 }}>
                     <Stack.Screen
                         name="MealCategories"
